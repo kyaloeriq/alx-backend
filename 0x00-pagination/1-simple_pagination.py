@@ -8,6 +8,7 @@ import csv
 import math
 from typing import List, Tuple
 
+
 def index_range(page: int, page_size: int) -> Tuple[int, int]:
     """
     Returns a tuple containing the start and end index for pagination
@@ -15,6 +16,7 @@ def index_range(page: int, page_size: int) -> Tuple[int, int]:
     start_index = (page - 1) * page_size
     end_index = start_index + page_size
     return start_index, end_index
+
 
 class Server:
     """Server class to paginate a database of popular baby names."""
@@ -38,8 +40,8 @@ class Server:
         """
         Retrieves a page of the dataset based on the page and page_size.
         """
-        assert isinstance(page, int) and page > 0, "page must be a positive integer"
-        assert isinstance(page_size, int) and page_size > 0, "page_size must be a positive integer"
+        assert isinstance(page, int) and page > 0,
+        assert isinstance(page_size, int) and page_size > 0,
 
         dataset = self.dataset()
         start_index, end_index = index_range(page, page_size)
