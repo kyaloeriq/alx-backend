@@ -22,9 +22,6 @@ class FIFOCache(BaseCaching):
     def put(self, key, item):
         """
         Assigns the item value to the key in the cache_data dictionary.
-        If key or item is None, this method does nothing.
-        If the number of items in cache_data exceeds BaseCaching.MAX_ITEMS,
-        it discards the first item put in the cache using FIFO and prints DISCARD.
         """
         if key is not None and item is not None:
             if key not in self.cache_data:
