@@ -22,10 +22,8 @@ class LRUCache(BaseCaching):
     def put(self, key, item):
         """
         Assigns the item value to the key in the cache_data dictionary.
-        If the cache exceeds the maximum limit, the least recently used item will be discarded.
         """
         if key is not None and item is not None:
-            # If key already exists, update it and move it to the end of lru_order
             if key in self.cache_data:
                 self.lru_order.remove(key)
             elif len(self.cache_data) >= BaseCaching.MAX_ITEMS:
@@ -44,7 +42,6 @@ class LRUCache(BaseCaching):
         If key is None or doesn't exist in cache_data, returns None.
         """
         if key is not None and key in self.cache_data:
-            # Move the accessed key to the end of lru_order (most recently used)
             self.lru_order.remove(key)
             self.lru_order.append(key)
             return self.cache_data[key]
