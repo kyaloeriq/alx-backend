@@ -24,7 +24,8 @@ class LIFOCache(BaseCaching):
         Assigns the item value to the key in the cache_data dictionary.
         """
         if key is not None and item is not None:
-            if len(self.cache_data) >= BaseCaching.MAX_ITEMS and key not in self.cache_data:
+            if (len(self.cache_data) >= BaseCaching.MAX_ITEMS and
+                    key not in self.cache_data):
                 # Discard the last added item (LIFO)
                 if self.last_key is not None:
                     del self.cache_data[self.last_key]
