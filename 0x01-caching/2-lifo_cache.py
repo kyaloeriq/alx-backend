@@ -22,7 +22,6 @@ class LIFOCache(BaseCaching):
     def put(self, key, item):
         """
         Assigns the item value to the key in the cache_data dictionary.
-        If the cache exceeds the maximum limit, the last added item will be discarded.
         """
         if key is not None and item is not None:
             if len(self.cache_data) >= BaseCaching.MAX_ITEMS and key not in self.cache_data:
