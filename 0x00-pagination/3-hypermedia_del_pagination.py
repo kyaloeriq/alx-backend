@@ -41,7 +41,9 @@ class Server:
         """
         Method to return a page of the dataset using index and page_size.
         """
-        assert index is not None and 0 <= index < len(self.indexed_dataset()), "index out of range"
+        assert index is not None and 0 <= index < len(self.indexed_dataset()), \
+    "index out of range"
+
         indexed_data = self.indexed_dataset()
 
         data = []
@@ -53,7 +55,8 @@ class Server:
                 data.append(indexed_data[current_index])
             current_index += 1
 
-        next_index = current_index if current_index < len(indexed_data) else None
+        next_index = current_index if current_index < len(indexed_data) \
+    else None
 
         return {
             "index": index,
