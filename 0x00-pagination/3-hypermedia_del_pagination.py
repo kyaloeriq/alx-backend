@@ -40,8 +40,6 @@ class Server:
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
         """
         Method to return a page of the dataset using index and page_size.
-        It handles the case where rows may be deleted from the dataset
-        between queries, so no items are missed.
         """
         assert index is not None and 0 <= index < len(self.indexed_dataset()), "index out of range"
         indexed_data = self.indexed_dataset()
