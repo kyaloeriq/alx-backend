@@ -6,6 +6,7 @@ This module sets up a basic Flask application with a single route.
 from flask import Flask, render_template
 from flask_babel import Babel
 
+
 class Config:
     """
     Config class for setting available languages and default configurations.
@@ -14,11 +15,13 @@ class Config:
     BABEL_DEFAULT_LOCALE = "en"
     BABEL_DEFAULT_TIMEZONE = "UTC"
 
+
 app = Flask(__name__)
 app.config.from_object(Config)
 
 # Instantiate Babel object and store it in a module-level variable
 babel = Babel(app)
+
 
 @app.route('/')
 def index():
@@ -29,6 +32,7 @@ def index():
         str: The rendered HTML content of the index page.
     """
     return render_template('index.html')
+
 
 if __name__ == "__main__":
     """
