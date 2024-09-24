@@ -1,0 +1,16 @@
+{
+  "name": "alx-backend",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "npx babel-node"
+  },
+  "dependencies": {
+    "redis": "^4.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/cli": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/node": "^7.0.0"
+  }
+}
