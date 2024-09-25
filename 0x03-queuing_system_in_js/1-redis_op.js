@@ -7,6 +7,11 @@ const client = createClient();
 // Event listener for successful connection
 client.on('connect', () => {
   console.log('Redis client connected to the server');
+
+  // Call the functions after connection is established
+  displaySchoolValue('Holberton');
+  setNewSchool('HolbertonSanFrancisco', '100');
+  displaySchoolValue('HolbertonSanFrancisco');
 });
 
 // Event listener for connection error
@@ -43,7 +48,7 @@ function displaySchoolValue(schoolName) {
   });
 }
 
-// Call the functions
-displaySchoolValue('Holberton');
-setNewSchool('HolbertonSanFrancisco', '100');
-displaySchoolValue('HolbertonSanFrancisco');
+// Close the client after a short delay to ensure all commands are completed
+setTimeout(() => {
+  client.quit();
+}, 1000);
