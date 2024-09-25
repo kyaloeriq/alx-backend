@@ -20,7 +20,13 @@ client.on('error', (err) => {
  * @param {string} value - The value to associate with the key.
  */
 function setNewSchool(schoolName, value) {
-  client.set(schoolName, value, redis.print);
+  client.set(schoolName, value, (err, reply) => {
+    if (err) {
+      console.error(`Error: ${err.message}`);
+      return;
+    }
+    console.log(`Reply: ${reply}`);
+  });
 }
 
 /**
